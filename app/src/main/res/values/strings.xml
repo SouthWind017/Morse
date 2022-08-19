@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">摩斯</string>
+    <string name="required_account">请输入账号</string>
+    <string name="required_password">请输入密码</string>
+    <string name="forgot_password">忘记密码</string>
+    <string name="register_now">立即注册</string>
+    <string name="login">登录</string>
+    <string name="read_and_agree">阅读并同意</string>
+    <string name="user_service_agreemen">《用户服务协议》</string>
+    <string name="privacy_agreement">《隐私协议》</string>
+</resources>
