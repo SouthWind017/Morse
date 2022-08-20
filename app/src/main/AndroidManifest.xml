@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.symboljoyful.morse">
+    <!-- 申请 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.component.WebViewActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.activity.LoginActivity"
             android:exported="false" />
@@ -23,8 +27,7 @@
         <activity
             android:name=".ui.activity.StartActivity"
             android:exported="true"
-            android:theme="@style/SplashActivityTheme"
-            >
+            android:theme="@style/SplashActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

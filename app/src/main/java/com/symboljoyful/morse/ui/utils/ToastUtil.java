@@ -1,4 +1,4 @@
-package com.symboljoyful.morse.utils;
+package com.symboljoyful.morse.ui.utils;
 
 import android.content.Context;
 import android.os.Handler;

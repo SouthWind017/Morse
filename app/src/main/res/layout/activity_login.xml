@@ -25,15 +25,14 @@
         android:layout_height="48dp"
         android:layout_below="@+id/logo"
         android:layout_marginTop="100dp"
+        android:autofillHints=""
         android:background="@drawable/login_account_shape"
         android:hint="@string/required_account"
         android:inputType="text"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:singleLine="true"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:autofillHints=""
-        />
+        android:textCursorDrawable="@drawable/color_cursor" />
 
     <ImageView
         android:layout_width="20dp"
@@ -85,7 +84,7 @@
 
         <TextView
             android:id="@+id/register_text"
-            android:layout_width="60dp"
+            android:layout_width="65dp"
             android:layout_height="21dp"
             android:layout_alignParentEnd="true"
             android:text="@string/register_now"
@@ -101,7 +100,7 @@
         android:layout_below="@id/text_group"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:background="@drawable/login_btn_shape"
+        android:background="@drawable/theme_shape"
         android:text="@string/login"
         android:textColor="#fff5f5f5"
         android:textSize="16sp" />
@@ -133,6 +132,7 @@
             android:text="@string/read_and_agree" />
 
         <TextView
+            android:id="@+id/user_service_agreemen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/user_service_agreemen"

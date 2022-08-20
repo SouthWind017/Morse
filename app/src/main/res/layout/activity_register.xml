@@ -101,7 +101,7 @@
         android:layout_below="@id/text_group"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:background="@drawable/login_btn_shape"
+        android:background="@drawable/theme_shape"
         android:text="@string/login"
         android:textColor="#fff5f5f5"
         android:textSize="16sp" />

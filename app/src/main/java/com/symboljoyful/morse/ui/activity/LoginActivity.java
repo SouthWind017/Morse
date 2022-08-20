@@ -1,7 +1,5 @@
 package com.symboljoyful.morse.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,8 +8,9 @@ import android.view.View;
 
 import com.symboljoyful.morse.base.BaseActivity;
 import com.symboljoyful.morse.databinding.ActivityLoginBinding;
+import com.symboljoyful.morse.ui.component.WebViewActivity;
 import com.symboljoyful.morse.utils.AntiShakeUtils;
-import com.symboljoyful.morse.utils.ToastUtil;
+import com.symboljoyful.morse.ui.utils.ToastUtil;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
@@ -31,12 +30,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void bindClick(){
         mBinding.loginBtn.setOnClickListener(this);
         mBinding.registerText.setOnClickListener(this);
+        mBinding.userServiceAgreemen.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
         Log.v("loginActivity","按钮点击");
         if (AntiShakeUtils.isInvalidClick(v)) return;
-        Log.v("loginActivity","按钮点击1");
         //判断ID
         if (v.getId() == mBinding.loginBtn.getId()) {
             if(!mBinding.agreementCheckBox.isChecked()){
@@ -54,6 +53,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }else if(v.getId() == mBinding.registerText.getId()){
             Intent intent = new Intent();
             intent.setClass(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        }else if(v.getId() == mBinding.userServiceAgreemen.getId()){
+
+            Intent intent = new Intent();
+            intent.setClass(LoginActivity.this, WebViewActivity.class);
             startActivity(intent);
         }
     }
