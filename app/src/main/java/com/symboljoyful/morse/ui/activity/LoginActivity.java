@@ -58,6 +58,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
             Intent intent = new Intent();
             intent.setClass(LoginActivity.this, WebViewActivity.class);
+            WebViewActivity.url = "https://www.baidu.com";
             startActivity(intent);
         }
     }

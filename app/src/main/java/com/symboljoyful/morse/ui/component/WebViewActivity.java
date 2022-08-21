@@ -1,9 +1,5 @@
 package com.symboljoyful.morse.ui.component;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,16 +8,13 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.symboljoyful.morse.R;
-import com.symboljoyful.morse.databinding.ActivityLoginBinding;
+import com.symboljoyful.morse.base.BaseActivity;
 import com.symboljoyful.morse.databinding.ActivityWebViewBinding;
-import com.symboljoyful.morse.ui.activity.LoginActivity;
-import com.symboljoyful.morse.ui.activity.RegisterActivity;
 
-public class WebViewActivity extends AppCompatActivity {
+public class WebViewActivity extends BaseActivity {
     private WebView webView;
     private ActivityWebViewBinding mBinding;
-    private String url;
+    public static String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +26,7 @@ public class WebViewActivity extends AppCompatActivity {
 
     }
     private void init() {
-        // TODO 自动生成的方法存根
+
         webView = findViewById(mBinding.webView.getId());
 
         webView.setWebViewClient(new WebViewClient(){
@@ -46,8 +39,9 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
         WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);//设置webview支持javascript脚本
+        settings.setJavaScriptEnabled(true);//设置webView支持javascript脚本
         webView.setWebChromeClient(new WebChromeClient(){
+
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 // TODO 自动生成的方法存根
@@ -61,21 +55,38 @@ public class WebViewActivity extends AppCompatActivity {
                 }
 
             }
+
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                mBinding.title.setText(title);
+            }
         });
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //清除记录
+        if (webView != null) {
+            webView.clearCache(true);
+            webView.clearHistory();
+            webView.clearFormData();
+            webView.destroy();
+        }
+    }
 
     //设置返回键动作（防止按返回键直接退出程序)
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO 自动生成的方法存根
         if(keyCode==KeyEvent.KEYCODE_BACK) {
-            if(webView.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
+            if(webView.canGoBack()) {  //当webView不是处于第一页面时，返回上一个页面
                 webView.goBack();
                 return true;
             }
-            else {//当webview处于第一页面时,直接退出程序
+            else {  //当webView处于第一页面时,直接退出程序
                 System.exit(0);
             }
 
